@@ -22,21 +22,10 @@ function App() {
           <div className="content__items">
             {pizzas.map((obj) => (
               <PizzaBlock
+                key={obj.id}
                 {...obj}
               />
             ))}
-            {/* <PizzaBlock
-              title="Мексиканская"
-              price={520} />
-            <PizzaBlock /> */}
-            {/* <PizzaBlock />
-            <PizzaBlock />
-            <PizzaBlock />
-            <PizzaBlock />
-            <PizzaBlock />
-            <PizzaBlock />
-            <PizzaBlock />
-            <PizzaBlock /> */}
           </div>
         </div>
       </div>

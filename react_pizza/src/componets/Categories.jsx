@@ -5,9 +5,9 @@ function Categories() {
 
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const onClickCategory = (index) => {
-    setActiveIndex(index)
-  }
+  // const onClickCategory = (index) => {
+  //   setActiveIndex(index)
+  // }
 
   const categories = ['Все', 'Вегетарианские', 'Мяcные', 'Гриль', 'Острые', 'Закрытые'];
 
@@ -16,9 +16,15 @@ function Categories() {
       <ul>
 
         {
-          categories.map((value, index) => {
-            return <li onClick={() => onClickCategory(index)} className={activeIndex === index ? "active" : ""}>{value}</li>
-          })
+          categories.map((value, index) => (
+            <li
+              key={index}
+              onClick={() => setActiveIndex(index)}
+              className={activeIndex === index ? "active" : ""}
+            >
+              {value}
+            </li>
+          ))
         }
       </ul>
     </div>
