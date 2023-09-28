@@ -44,7 +44,7 @@ export const Home = ({ searchValue }) => {
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
 
   return (
-    <div className="container">
+    <div className="container" div className="container">
       <div className="content__top">
         <Categories value={categoryId} onChangeCategory={(index) => setCategoryId(index)} />
         <Sort value={sortType} onChangeSort={(index) => setSortType(index)} />
@@ -56,6 +56,6 @@ export const Home = ({ searchValue }) => {
         }
       </div>
 
-    </div>
+    </divdiv>
   )
 }
