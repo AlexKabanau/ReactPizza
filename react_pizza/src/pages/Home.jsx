@@ -12,7 +12,8 @@ import { setCategoryId } from '../redux/slices/filterSlice';
 
 export const Home = () => {
 
-  const categoryId = useSelector(state => state.filter.categoryId);
+  const { categoryId, sort } = useSelector(state => state.filter);
+  // const sortType = ;
   // console.log(categoryId);
   const dispatch = useDispatch();
 
@@ -21,10 +22,6 @@ export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   // const [categoryId, setCategoryId] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortType, setSortType] = useState({
-    name: 'популярности',
-    sortProperty: 'rating'
-  });
 
   const onChangeCategory = (id) => {
     // console.log(id);
@@ -35,8 +32,8 @@ export const Home = () => {
     setIsLoading(true);
 
     const category = categoryId > 0 ? `category=${categoryId}` : ``;
-    const sortBy = sortType.sortProperty.replace('-', '');
-    const order = sortType.sortProperty.includes('-') ? `asc` : `desc`;
+    const sortBy = sort.sortProperty.replace('-', '');
+    const order = sort.sortProperty.includes('-') ? `asc` : `desc`;
     const search = searchValue ? `&search=${searchValue}` : ``;
 
 
@@ -51,7 +48,7 @@ export const Home = () => {
         setItems(arr);
       });
     window.scrollTo(0, 0)
-  }, [categoryId, sortType, searchValue, currentPage]);
+  }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
   const pizzas = items
     // .filter((obj) => (obj.title.toLowerCase().includes(searchValue.toLowerCase())))
@@ -63,7 +60,7 @@ export const Home = () => {
     <div className="container" div>
       <div className="content__top">
         <Categories value={categoryId} onChangeCategory={onChangeCategory} />
-        <Sort value={sortType} onChangeSort={(index) => setSortType(index)} />
+        <Sort />
       </div>
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
