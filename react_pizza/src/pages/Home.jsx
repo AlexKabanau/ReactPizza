@@ -6,21 +6,30 @@ import PizzaBlock from '../componets/PizzaBlock';
 import Pagination from '../componets/Pagination';
 import { SearchContext } from '../App';
 import { useContext } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { setCategoryId } from '../redux/slices/filterSlice';
 
 export const Home = () => {
+
+  const categoryId = useSelector(state => state.filter.categoryId);
+  // console.log(categoryId);
+  const dispatch = useDispatch();
 
   const { searchValue } = useContext(SearchContext)
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [categoryId, setCategoryId] = useState(0);
+  // const [categoryId, setCategoryId] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortType, setSortType] = useState({
     name: 'популярности',
     sortProperty: 'rating'
   });
 
-
-
+  const onChangeCategory = (id) => {
+    // console.log(id);
+    dispatch(setCategoryId(id));
+  }
 
   useEffect(() => {
     setIsLoading(true);
@@ -53,7 +62,7 @@ export const Home = () => {
   return (
     <div className="container" div>
       <div className="content__top">
-        <Categories value={categoryId} onChangeCategory={(index) => setCategoryId(index)} />
+        <Categories value={categoryId} onChangeCategory={onChangeCategory} />
         <Sort value={sortType} onChangeSort={(index) => setSortType(index)} />
       </div>
       <h2 className="content__title">Все пиццы</h2>
