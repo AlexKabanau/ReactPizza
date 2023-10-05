@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Categories from '../componets/Categories';
 import Sort from '../componets/Sort';
 import Skeleton from '../componets/PizzaBlock/Skeleton';
@@ -37,17 +38,26 @@ export const Home = () => {
     const search = searchValue ? `&search=${searchValue}` : ``;
 
 
-    fetch(
-      `https://650abf4edfd73d1fab08cfdc.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
-    )
-      .then((res) => {
-        return res.json();
-      })
-      .then((arr) => {
-        setIsLoading(false)
-        setItems(arr);
-      });
+    axios.get(`https://650abf4edfd73d1fab08cfdc.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`)
+    .then((response) => {
+      // console.log(response)
+      setIsLoading(false)
+      setItems(response.data);
+    });
+
+    // fetch(
+    //   `https://650abf4edfd73d1fab08cfdc.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
+    // )
+    //   .then((res) => {
+    //     return res.json();
+    //   })
+    //   .then((arr) => {
+    //     setIsLoading(false)
+    //     setItems(arr);
+    //   });
+
     window.scrollTo(0, 0)
+
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
   const pizzas = items
