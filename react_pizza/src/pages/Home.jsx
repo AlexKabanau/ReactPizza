@@ -9,11 +9,11 @@ import { SearchContext } from '../App';
 import { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { setCategoryId } from '../redux/slices/filterSlice';
+import { setCategoryId, setCurrentPage } from '../redux/slices/filterSlice';
 
 export const Home = () => {
 
-  const { categoryId, sort } = useSelector(state => state.filter);
+  const { categoryId, sort, currentPage } = useSelector(state => state.filter);
   // const sortType = ;
   // console.log(categoryId);
   const dispatch = useDispatch();
@@ -22,11 +22,15 @@ export const Home = () => {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   // const [categoryId, setCategoryId] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
 
   const onChangeCategory = (id) => {
     // console.log(id);
     dispatch(setCategoryId(id));
+  }
+
+  const onChangePage = (number) => {
+    dispatch(setCurrentPage(number))
   }
 
   useEffect(() => {
@@ -39,11 +43,11 @@ export const Home = () => {
 
 
     axios.get(`https://650abf4edfd73d1fab08cfdc.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`)
-    .then((response) => {
-      // console.log(response)
-      setIsLoading(false)
-      setItems(response.data);
-    });
+      .then((response) => {
+        // console.log(response)
+        setIsLoading(false)
+        setItems(response.data);
+      });
 
     // fetch(
     //   `https://650abf4edfd73d1fab08cfdc.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
@@ -78,7 +82,7 @@ export const Home = () => {
           isLoading ? skeletons : pizzas
         }
       </div>
-      <Pagination onChangePage={(number) => setCurrentPage(number)} />
+      <Pagination currentPage={currentPage} onChangePage={onChangePage} />
 
     </div>
   )
