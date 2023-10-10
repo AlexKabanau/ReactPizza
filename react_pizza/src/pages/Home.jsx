@@ -76,8 +76,6 @@ export const Home = () => {
       fetchPizzas()
     }
     isSearch.current = false;
-
-
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
   useEffect(() => {

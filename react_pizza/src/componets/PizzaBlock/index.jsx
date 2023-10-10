@@ -3,7 +3,7 @@ import { addItem } from "../../redux/slices/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 
-const typeNames = ['тонкое', 'традиционное'];
+export const typeNames = ['тонкое', 'традиционное'];
 
 
 function PizzaBlock({ id, title, price, imageUrl, sizes, types, rating }) {
@@ -27,8 +27,8 @@ function PizzaBlock({ id, title, price, imageUrl, sizes, types, rating }) {
       title,
       price,
       imageUrl,
-      type: activeType,
-      size: activeSize
+      type: typeNames[activeType],
+      size: sizes[activeSize]
     }
     dispatch(addItem(item))
   }
