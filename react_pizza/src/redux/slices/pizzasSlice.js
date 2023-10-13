@@ -25,20 +25,23 @@ export const pizzasSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-    .addCase(fetchPizzas.pending, (state, action) => {
-      state.status = 'loading';
-      state.items = [];
-    })
-    .addCase(fetchPizzas.fulfilled, (state, action) => {
-      state.status = 'success';
-      state.items = action.payload;
-    })
-    .addCase(fetchPizzas.rejected, (state, action) => {
-      state.status = 'error';
-      state.items = [];
-    })
+      .addCase(fetchPizzas.pending, (state, action) => {
+        state.status = 'loading';
+        state.items = [];
+      })
+      .addCase(fetchPizzas.fulfilled, (state, action) => {
+        state.status = 'success';
+        state.items = action.payload;
+      })
+      .addCase(fetchPizzas.rejected, (state, action) => {
+        state.status = 'error';
+        state.items = [];
+      })
   },
 })
+
+export const selectPizzasData = (state) => state.pizzas;
+
 
 // Action creators are generated for each case reducer function
 export const { setItems } = pizzasSlice.actions;

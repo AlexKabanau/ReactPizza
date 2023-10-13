@@ -11,12 +11,12 @@ import { SearchContext } from '../App';
 import { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { setCategoryId, setCurrentPage, setFilters } from '../redux/slices/filterSlice';
-import { fetchPizzas } from '../redux/slices/pizzasSlice';
+import { selectFilter, setCategoryId, setCurrentPage, setFilters } from '../redux/slices/filterSlice';
+import { fetchPizzas, selectPizzasData } from '../redux/slices/pizzasSlice';
 
 export const Home = () => {
-  const { categoryId, sort, currentPage } = useSelector((state) => state.filter);
-  const { items, status } = useSelector((state) => state.pizzas);
+  const { categoryId, sort, currentPage, searchValue } = useSelector(selectFilter);
+  const { items, status } = useSelector(selectPizzasData);
 
   const dispatch = useDispatch();
 
@@ -25,7 +25,7 @@ export const Home = () => {
   const isSearch = useRef(false);
   const isMounted = useRef(false);
 
-  const { searchValue } = useContext(SearchContext);
+  // const { searchValue } = useContext(SearchContext);
   // const [items, setItems] = useState([]);
   // const [isLoading, setIsLoading] = useState(true);
   // const [categoryId, setCategoryId] = useState(0);
