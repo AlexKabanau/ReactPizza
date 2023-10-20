@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 // import axios from 'axios';
 import qs from 'qs';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Categories from '../componets/Categories';
 import Sort, { sortList } from '../componets/Sort';
 import Skeleton from '../componets/PizzaBlock/Skeleton';
