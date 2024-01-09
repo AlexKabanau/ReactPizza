@@ -1,17 +1,22 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 // import axios from 'axios';
 import qs from 'qs';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Categories from '../componets/Categories';
 import Sort, { sortList } from '../componets/Sort';
 import Skeleton from '../componets/PizzaBlock/Skeleton';
 import PizzaBlock from '../componets/PizzaBlock';
 import Pagination from '../componets/Pagination';
-import { SearchContext } from '../App';
-import { useContext } from 'react';
+// import { SearchContext } from '../App';
+// import { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { selectFilter, setCategoryId, setCurrentPage, setFilters } from '../redux/slices/filterSlice';
+import {
+  selectFilter,
+  setCategoryId,
+  setCurrentPage,
+  setFilters,
+} from '../redux/slices/filterSlice';
 import { fetchPizzas, selectPizzasData } from '../redux/slices/pizzasSlice';
 
 export const Home = () => {
@@ -115,7 +120,11 @@ export const Home = () => {
 
   const pizzas = items
     // .filter((obj) => (obj.title.toLowerCase().includes(searchValue.toLowerCase())))
-    .map((obj) => <PizzaBlock key={obj.id} {...obj} />);
+    .map((obj) => (
+      <Link key={obj.id} to={`pizza/${obj.id}`}>
+        <PizzaBlock {...obj} />
+      </Link>
+    ));
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
 
   return (
@@ -126,7 +135,7 @@ export const Home = () => {
       </div>
       <h2 className="content__title">Все пиццы</h2>
       {status === 'error' ? (
-        <div className='content__error-info'>
+        <div className="content__error-info">
           <h2>
             Произошла ошибка <icon>😕</icon>
           </h2>
