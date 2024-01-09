@@ -15,6 +15,13 @@ import { Route, Routes } from 'react-router-dom';
 import FullPizza from './pages/FullPizza';
 import MainLayout from './layouts/MainLayout';
 
+<<<<<<< HEAD
+=======
+// import pizzas from "./assets/pizzas.json"
+import FullPizza from './pages/FullPizza';
+
+// export const SearchContext = createContext();
+>>>>>>> 4940ae4e41e38fc9b705b486e9af152bf343fda5
 
 function App() {
 
@@ -22,6 +29,7 @@ function App() {
 
 
   return (
+<<<<<<< HEAD
     <Routes>
       <Route path='/' element={<MainLayout />}>
         <Route path='/' element={<Home />} />
@@ -31,6 +39,21 @@ function App() {
       </Route>
 
     </Routes>
+=======
+    <div className="wrapper">
+      {/* <SearchContext.Provider value={{ searchValue, setSearchValue }}> */}
+      <Header />
+      <div className="content">
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/pizza/:id' element={<FullPizza />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </div>
+      {/* </SearchContext.Provider> */}
+    </div>
+>>>>>>> 4940ae4e41e38fc9b705b486e9af152bf343fda5
   );
 }
 
