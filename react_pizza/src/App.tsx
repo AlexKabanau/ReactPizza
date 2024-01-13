@@ -1,3 +1,4 @@
+import React from 'react';
 // import logo from './logo.svg';
 import './scss/app.scss'
 import './App.css';
@@ -12,9 +13,8 @@ import { Cart } from './pages/Cart';
 import { NotFound } from './pages/NotFound';
 import { Route, Routes } from 'react-router-dom';
 // import { createContext, useState } from 'react';
-import FullPizza from './pages/FullPizza';
+import FullPizza from './pages/FullPizza.tsx';
 import MainLayout from './layouts/MainLayout';
-
 
 function App() {
 
