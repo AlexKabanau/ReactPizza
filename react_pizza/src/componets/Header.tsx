@@ -2,10 +2,11 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import logoSvg from '../assets/img/pizza-logo.svg';
-import Search from './Search';
+import Search from './Search/index.tsx';
 import { selectCart } from '../redux/slices/cartSlice';
 
-function Header() {
+const Header = () => {
+// function Header() {
   const { items, totalPrice } = useSelector(selectCart);
   const totalCount = items.reduce((sum: number, item: any) => sum + item.count, 0);
   const { pathname } = useLocation();

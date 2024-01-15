@@ -11,11 +11,11 @@ import { setSearchValue } from "../../redux/slices/filterSlice";
 
 
 
-const Search = () => {
+const Search: React.FC = () => {
   const dispatch = useDispatch();
   const [value, setValue] = useState('')
   // const { setSearchValue } = useContext(SearchContext);
-  const inputRef = useRef();
+  const inputRef = useRef<HTMLInputElement>(null);
 
 
 
@@ -24,7 +24,15 @@ const Search = () => {
     dispatch(setSearchValue(''));
     setValue("");
     // setSearchValue("");
-    inputRef.current.focus();
+
+    ///
+    // if (inputRef.current) {
+    //   inputRef.current.focus();
+    // }
+
+    ///
+    inputRef.current?.focus();
+
   };
 
   const updateSearchValue = useCallback(

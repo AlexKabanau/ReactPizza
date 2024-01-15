@@ -6,8 +6,18 @@ import { Link } from "react-router-dom";
 
 export const typeNames = ['тонкое', 'традиционное'];
 
+type PizzaBlockProps= {
+  id: string,
+  title: string,
+  price: number,
+  imageUrl: string,
+  sizes: number[],
+  types: number[],
+  rating: string
+}
 
-function PizzaBlock({ id, title, price, imageUrl, sizes, types, rating }) {
+const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, title, price, imageUrl, sizes, types, rating }) => {
+// function PizzaBlock({ id, title, price, imageUrl, sizes, types, rating }) {
 
   // const [pizzaCount, setPizzaCount] = useState(0);
 
