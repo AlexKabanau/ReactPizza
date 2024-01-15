@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import qs from 'qs';
 import { Link, useNavigate } from 'react-router-dom';
 import Categories from '../componets/Categories';
-import Sort, { sortList } from '../componets/Sort';
+import Sort, { sortList } from '../componets/Sort.tsx';
 import Skeleton from '../componets/PizzaBlock/Skeleton';
 import PizzaBlock from '../componets/PizzaBlock';
 import Pagination from '../componets/Pagination';

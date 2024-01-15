@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CartItem from '../componets/CartItem';
 import { clearItems, selectCart } from '../redux/slices/cartSlice';
-import CartEmpty from '../componets/CartEmpty';
+import CartEmpty from '../componets/CartEmpty.tsx';
 // import { NotFoundBlock } from '../componets/NotFoundBlock';
 
 export const Cart = () => {
