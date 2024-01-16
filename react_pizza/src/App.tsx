@@ -8,13 +8,14 @@ import './App.css';
 // import PizzaBlock from './componets/PizzaBlock';
 // import { useEffect, useState } from 'react';
 // import Skeleton from './componets/PizzaBlock/Skeleton';
-import { Home } from './pages/Home';
-import { Cart } from './pages/Cart';
-import { NotFound } from './pages/NotFound';
+import { Home } from './pages/Home.tsx';
+import { Cart } from './pages/Cart.tsx';
+import { NotFound } from './pages/NotFound.tsx';
 import { Route, Routes } from 'react-router-dom';
 // import { createContext, useState } from 'react';
 import FullPizza from './pages/FullPizza.tsx';
-import MainLayout from './layouts/MainLayout';
+// import MainLayout from './layouts/MainLayout';
+import MainLayout from './layouts/MainLayout.tsx';
 
 function App() {
 
