@@ -38,11 +38,11 @@ function Sort() {
 
 
   useEffect(() => {
-    const handleClickOutside = (event: PopUpClick) => {
+    const handleClickOutside = (event: globalThis.MouseEvent) => {
       if (sortRef.current && !event.composedPath().includes(sortRef.current)) {
-        setOpen(false)
+          setOpen(false);
       }
-    }
+}
     document.body.addEventListener('click', handleClickOutside)
 
     return () => {
