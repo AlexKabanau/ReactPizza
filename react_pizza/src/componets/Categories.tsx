@@ -4,6 +4,7 @@ type CategoriesProps = {
   value: number,
   onChangeCategory: (i: number ) => void
 };
+const categories = ['Все', 'Вегетарианские', 'Мяcные', 'Гриль', 'Острые', 'Закрытые'];
 
 const Categories: React.FC<CategoriesProps> = ({ value, onChangeCategory }) => {
 // function Categories({ value, onChangeCategory }) {
@@ -14,7 +15,6 @@ const Categories: React.FC<CategoriesProps> = ({ value, onChangeCategory }) => {
   //   setActiveIndex(index)
   // }
 
-  const categories = ['Все', 'Вегетарианские', 'Мяcные', 'Гриль', 'Острые', 'Закрытые'];
 
   return (
     <div className="categories">

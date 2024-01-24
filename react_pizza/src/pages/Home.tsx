@@ -129,7 +129,7 @@ export const Home: React.FC = () => {
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
 
   return (
-    <div className="container" div>
+    <div className="container">
       <div className="content__top">
         <Categories value={categoryId} onChangeCategory={onChangeCategory} />
         <Sort />
