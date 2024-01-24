@@ -16,7 +16,7 @@ type PizzaBlockProps= {
   rating: string
 }
 
-const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, title, price, imageUrl, sizes, types, rating }) => {
+const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, title, price, imageUrl, sizes, types }) => {
 // function PizzaBlock({ id, title, price, imageUrl, sizes, types, rating }) {
 
   // const [pizzaCount, setPizzaCount] = useState(0);

@@ -123,7 +123,7 @@ export const Home: React.FC = () => {
     // .filter((obj) => (obj.title.toLowerCase().includes(searchValue.toLowerCase())))
     .map((obj) => (
       <Link key={obj.id} to={`pizza/${obj.id}`}>
-        <PizzaBlock {...obj} />
+        <PizzaBlock rating={''} {...obj} />
       </Link>
     ));
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
@@ -138,7 +138,7 @@ export const Home: React.FC = () => {
       {status === 'error' ? (
         <div className="content__error-info">
           <h2>
-            Произошла ошибка <icon>😕</icon>
+            Произошла ошибка <span>😕</span>
           </h2>
           <p>
             К сожалению, неудалось получить пиццы.
