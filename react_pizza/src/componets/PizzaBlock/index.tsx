@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { addItem, selectCartItemById } from "../../redux/slices/cartSlice";
+import { addItem, CartItem, selectCartItemById } from "../../redux/slices/cartSlice.ts";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -16,7 +16,7 @@ type PizzaBlockProps= {
   rating: string
 }
 
-const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, title, price, imageUrl, sizes, types }) => {
+const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, title, price, imageUrl, sizes, types, rating }) => {
 // function PizzaBlock({ id, title, price, imageUrl, sizes, types, rating }) {
 
   // const [pizzaCount, setPizzaCount] = useState(0);
@@ -33,13 +33,14 @@ const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, title, price, imageUrl, siz
   const addedCount = cartItem ? cartItem.count : 0;
 
   const onClickAdd = () => {
-    const item = {
+    const item : CartItem = {
       id,
       title,
       price,
       imageUrl,
       type: typeNames[activeType],
-      size: sizes[activeSize]
+      size: sizes[activeSize],
+      count: 0
     }
     dispatch(addItem(item))
   }
@@ -54,7 +55,10 @@ const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, title, price, imageUrl, siz
             alt="Pizza"
           />
         </Link>
+        <Link to={`/pizza/${id}`}>
         <h4 className="pizza-block__title">{title}</h4>
+
+        </Link>
         {/* <h4 className="pizza-block__title">Чизбургер-пицца</h4> */}
         <div className="pizza-block__selector">
           <ul>
