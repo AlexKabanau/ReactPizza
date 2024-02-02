@@ -8,13 +8,19 @@ import Skeleton from '../componets/PizzaBlock/Skeleton.tsx';
 import PizzaBlock from '../componets/PizzaBlock/index.tsx';
 import Pagination from '../componets/Pagination/index.tsx';
 import {
-  FilterSliceState,
-  selectFilter,
   setCategoryId,
   setCurrentPage,
   setFilters,
-} from '../redux/slices/filterSlice.ts';
-import { fetchPizzas, SearchPizzaParams, selectPizzasData } from '../redux/slices/pizzasSlice.ts';
+} from '../redux/filter/slice.ts';
+import {
+  selectFilter,
+} from '../redux/filter/selectors.ts';
+import {
+  FilterSliceState,
+} from '../redux/filter/types.ts';
+import { fetchPizzas } from '../redux/pizzas/slice.ts';
+import { SearchPizzaParams } from '../redux/pizzas/types.ts';
+import { selectPizzasData } from '../redux/pizzas/selectors.ts';
 import { useAppDispatch } from '../redux/store.ts';
 
 export const Home: React.FC = () => {

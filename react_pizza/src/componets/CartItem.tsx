@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 // import { typeNames } from "./PizzaBlock";
-import { addItem, CartItem, minusItem, removeItem } from "../redux/slices/cartSlice.ts";
+import { addItem, CartItem, minusItem, removeItem } from "../redux/cart/slice.ts";
 import React from "react";
 // const typeNames = ['тонкое', 'традиционное'];
 

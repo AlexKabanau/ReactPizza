@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { addItem, CartItem, selectCartItemById } from "../../redux/slices/cartSlice.ts";
+import { addItem, CartItem, } from "../../redux/cart/slice.ts";
+import {  selectCartItemById } from "../../redux/cart/selectors.ts";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 

@@ -7,7 +7,7 @@ import style from "./Search.module.scss";
 // import { SearchContext } from "../../App";
 import { useCallback } from "react";
 import { useState } from "react";
-import { setSearchValue } from "../../redux/slices/filterSlice.ts";
+import { setSearchValue } from "../../redux/filter/slice.ts";
 
 
 
