@@ -1,4 +1,5 @@
 import React from 'react';
+import Loadable from 'react-loadable'
 // import logo from './logo.svg';
 import './scss/app.scss'
 import './App.css';
@@ -16,6 +17,11 @@ import { Route, Routes } from 'react-router-dom';
 import FullPizza from './pages/FullPizza.tsx';
 // import MainLayout from './layouts/MainLayout';
 import MainLayout from './layouts/MainLayout.tsx';
+
+// const Cart1 = Loadable({
+//   loader: () => import(/* webpackChunkName: "Cart" */'./pages/Cart.tsx'),
+//   loading: () => <div>Идет загрузка...</div>
+// })
 
 function App() {
 

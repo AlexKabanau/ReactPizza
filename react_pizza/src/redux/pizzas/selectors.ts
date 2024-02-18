@@ -1,3 +1,3 @@
-import { RootState } from '../../store';
+import { RootState } from '../store.ts';
 
 export const selectPizzasData = (state: RootState) => state.pizzas;
